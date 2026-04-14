@@ -1,0 +1,77 @@
+{
+  // 使用 IntelliSense 了解相关属性。
+  // 悬停以查看现有属性的描述。
+  // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Python: Web",
+      "type": "python",
+      "request": "launch",
+      "program": "web.py",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Python: Vocoder Preprocess",
+      "type": "python",
+      "request": "launch",
+      "program": "control\\cli\\vocoder_preprocess.py",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "args": ["..\\audiodata"]
+    },
+    {
+      "name": "Python: Vocoder Train",
+      "type": "python",
+      "request": "launch",
+      "program": "control\\cli\\vocoder_train.py",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "args": ["dev", "..\\audiodata"]
+    },
+    {
+      "name": "Python: Demo Box",
+      "type": "python",
+      "request": "launch",
+      "program": "demo_toolbox.py",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "args": ["-d","..\\audiodata"]
+    },
+    {
+      "name": "Python: Demo Box VC",
+      "type": "python",
+      "request": "launch",
+      "program": "demo_toolbox.py",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "args": ["-d","..\\audiodata","-vc"]
+    },
+    {
+      "name": "Python: Synth Train",
+      "type": "python",
+      "request": "launch",
+      "program": "train.py",
+      "console": "integratedTerminal",
+      "args": ["--type", "vits"]
+    },
+    {
+      "name": "Python: PPG Convert",
+      "type": "python",
+      "request": "launch",
+      "program": "run.py",
+      "console": "integratedTerminal",
+      "args": ["-c", ".\\ppg2mel\\saved_models\\seq2seq_mol_ppg2mel_vctk_libri_oneshotvc_r4_normMel_v2.yaml",
+        "-m", ".\\ppg2mel\\saved_models\\best_loss_step_304000.pth", "--wav_dir", ".\\wavs\\input", "--ref_wav_path", ".\\wavs\\pkq.mp3", "-o", ".\\wavs\\output\\"
+      ]
+    },
+    {
+      "name": "Python: Vits Train",
+      "type": "python",
+      "request": "launch",
+      "program": "train.py",
+      "console": "integratedTerminal",
+      "args": ["--type", "vits"]
+    },
+  ]
+}
