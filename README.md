@@ -1,11 +1,8 @@
-> 🚧 While I no longer actively update this repo, you can find me continuously pushing this tech forward to good side and open-source. I'm also building an optimized and cloud hosted version: https://noiz.ai/ and [we're hiring](https://github.com/babysor/MockingBird/issues/1029).
->
+
 ![mockingbird](https://user-images.githubusercontent.com/12797292/131216767-6eb251d6-14fc-4951-8324-2722f0cd4c63.jpg)
-<a href="https://trendshift.io/repositories/3869" target="_blank"><img src="https://trendshift.io/api/badge/repositories/3869" alt="babysor%2FMockingBird | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
 
-[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](http://choosealicense.com/licenses/mit/)
 
-> English | [中文](README-CN.md)| [中文Linux](README-LINUX-CN.md)
+
 
 ## Features
 🌍 **Chinese** supported mandarin and tested with multiple datasets: aidatatang_200zh, magicdata, aishell3, data_aishell, and etc.
@@ -17,8 +14,6 @@
 🤩 **Easy & Awesome** effect with only newly-trained synthesizer, by reusing the pretrained encoder/vocoder
 
 🌍 **Webserver Ready** to serve your result with remote calling
-
-### [DEMO VIDEO](https://www.bilibili.com/video/BV17Q4y1B7mY/)
 
 ## Quick Start
 
@@ -50,7 +45,7 @@ or
   >  Since the major issue comes with the PyQt5 packages used in `demo_toolbox.py` not compatible with M1 chips, were one to attempt on training models with the M1 chip, either that person can forgo `demo_toolbox.py`, or one can try the `web.py` in the project.
 
 ##### 1.2.1 Install `PyQt5`, with [ref](https://stackoverflow.com/a/68038451/20455983) here.
-  * Create and open a Rosetta Terminal, with [ref](https://dev.to/courier/tips-and-tricks-to-setup-your-apple-m1-for-development-547g) here.
+  * Create and open a Rosetta Terminal
   * Use system Python to create a virtual environment for the project
     ```
     /usr/bin/python3 -m venv /PathToMockingBird/venv
@@ -63,7 +58,7 @@ or
     ```
 ##### 1.2.2 Install `pyworld` and `ctc-segmentation`
 
-> Both packages seem to be unique to this project and are not seen in the original [Real-Time Voice Cloning](https://github.com/CorentinJ/Real-Time-Voice-Cloning) project. When installing with `pip install`, both packages lack wheels so the program tries to directly compile from c code and could not find `Python.h`.
+> Both packages seem to be unique to this project and are not seen in the original [Real-Time Voice Cloning] project. When installing with `pip install`, both packages lack wheels so the program tries to directly compile from c code and could not find `Python.h`.
 
   * Install `pyworld`
       * `brew install python` `Python.h` can come with Python installed by brew
@@ -72,7 +67,7 @@ or
 
 
   * Install`ctc-segmentation`
-    > Same method does not apply to `ctc-segmentation`, and one needs to compile it from the source code on [github](https://github.com/lumaku/ctc-segmentation).
+    > Same method does not apply to `ctc-segmentation`, and one needs to compile it from the source code on [github].
     * `git clone https://github.com/lumaku/ctc-segmentation.git`
     * `cd ctc-segmentation`
     * `source /PathToMockingBird/venv/bin/activate` If the virtual environment hasn't been deployed, activate it.
@@ -86,7 +81,7 @@ or
   * `pip install -r requirements.txt` Install other requirements.
 
 ##### 1.2.4 Run the Inference Time (with Toolbox)
-  > To run the project on x86 architecture. [ref](https://youtrack.jetbrains.com/issue/PY-46290/Allow-running-Python-under-Rosetta-2-in-PyCharm-for-Apple-Silicon).
+  > To run the project on x86 architecture. [ref]
   * `vim /PathToMockingBird/venv/bin/pythonM1` Create an executable file `pythonM1` to condition python interpreter at `/PathToMockingBird/venv/bin`.
   * Write in the following content:
     ```
@@ -95,7 +90,7 @@ or
     /usr/bin/arch -x86_64 $mydir/python "$@"
     ```
   * `chmod +x pythonM1` Set the file as executable.
-  * If using PyCharm IDE, configure project interpreter to `pythonM1`([steps here](https://www.jetbrains.com/help/pycharm/configuring-python-interpreter.html#add-existing-interpreter)), if using command line python, run `/PathToMockingBird/venv/bin/pythonM1 demo_toolbox.py`
+  * If using PyCharm IDE, configure project interpreter to `pythonM1` if using command line python, run `/PathToMockingBird/venv/bin/pythonM1 demo_toolbox.py`
 
 
 ### 2. Prepare your models
@@ -156,96 +151,3 @@ You can then try the toolbox:
 You can then try the command:
 `python gen_voice.py <text_file.txt> your_wav_file.wav`
 you may need to install cn2an by "pip install cn2an" for better digital number result.
-
-## Reference
-> This repository is forked from [Real-Time-Voice-Cloning](https://github.com/CorentinJ/Real-Time-Voice-Cloning) which only support English.
-
-| URL | Designation | Title | Implementation source |
-| --- | ----------- | ----- | --------------------- |
-| [1803.09017](https://arxiv.org/abs/1803.09017) | GlobalStyleToken (synthesizer)| Style Tokens: Unsupervised Style Modeling, Control and Transfer in End-to-End Speech Synthesis | This repo |
-| [2010.05646](https://arxiv.org/abs/2010.05646) | HiFi-GAN (vocoder)| Generative Adversarial Networks for Efficient and High Fidelity Speech Synthesis | This repo |
-| [2106.02297](https://arxiv.org/abs/2106.02297) | Fre-GAN (vocoder)| Fre-GAN: Adversarial Frequency-consistent Audio Synthesis | This repo |
-|[**1806.04558**](https://arxiv.org/pdf/1806.04558.pdf) | **SV2TTS** | **Transfer Learning from Speaker Verification to Multispeaker Text-To-Speech Synthesis** | This repo |
-|[1802.08435](https://arxiv.org/pdf/1802.08435.pdf) | WaveRNN (vocoder) | Efficient Neural Audio Synthesis | [fatchord/WaveRNN](https://github.com/fatchord/WaveRNN) |
-|[1703.10135](https://arxiv.org/pdf/1703.10135.pdf) | Tacotron (synthesizer) | Tacotron: Towards End-to-End Speech Synthesis | [fatchord/WaveRNN](https://github.com/fatchord/WaveRNN)
-|[1710.10467](https://arxiv.org/pdf/1710.10467.pdf) | GE2E (encoder)| Generalized End-To-End Loss for Speaker Verification | This repo |
-
-## F Q&A
-#### 1.Where can I download the dataset?
-| Dataset | Original Source | Alternative Sources |
-| --- | ----------- | ---------------|
-| aidatatang_200zh | [OpenSLR](http://www.openslr.org/62/) | [Google Drive](https://drive.google.com/file/d/110A11KZoVe7vy6kXlLb6zVPLb_J91I_t/view?usp=sharing) |
-| magicdata | [OpenSLR](http://www.openslr.org/68/) | [Google Drive (Dev set)](https://drive.google.com/file/d/1g5bWRUSNH68ycC6eNvtwh07nX3QhOOlo/view?usp=sharing) |
-| aishell3 | [OpenSLR](https://www.openslr.org/93/) | [Google Drive](https://drive.google.com/file/d/1shYp_o4Z0X0cZSKQDtFirct2luFUwKzZ/view?usp=sharing) |
-| data_aishell | [OpenSLR](https://www.openslr.org/33/) |  |
-> After unzip aidatatang_200zh, you need to unzip all the files under `aidatatang_200zh\corpus\train`
-
-#### 2.What is`<datasets_root>`?
-If the dataset path is `D:\data\aidatatang_200zh`,then `<datasets_root>` is`D:\data`
-
-#### 3.Not enough VRAM
-Train the synthesizer：adjust the batch_size in `synthesizer/hparams.py`
-```
-//Before
-tts_schedule = [(2,  1e-3,  20_000,  12),   # Progressive training schedule
-                (2,  5e-4,  40_000,  12),   # (r, lr, step, batch_size)
-                (2,  2e-4,  80_000,  12),   #
-                (2,  1e-4, 160_000,  12),   # r = reduction factor (# of mel frames
-                (2,  3e-5, 320_000,  12),   #     synthesized for each decoder iteration)
-                (2,  1e-5, 640_000,  12)],  # lr = learning rate
-//After
-tts_schedule = [(2,  1e-3,  20_000,  8),   # Progressive training schedule
-                (2,  5e-4,  40_000,  8),   # (r, lr, step, batch_size)
-                (2,  2e-4,  80_000,  8),   #
-                (2,  1e-4, 160_000,  8),   # r = reduction factor (# of mel frames
-                (2,  3e-5, 320_000,  8),   #     synthesized for each decoder iteration)
-                (2,  1e-5, 640_000,  8)],  # lr = learning rate
-```
-
-Train Vocoder-Preprocess the data：adjust the batch_size in `synthesizer/hparams.py`
-```
-//Before
-### Data Preprocessing
-        max_mel_frames = 900,
-        rescale = True,
-        rescaling_max = 0.9,
-        synthesis_batch_size = 16,                  # For vocoder preprocessing and inference.
-//After
-### Data Preprocessing
-        max_mel_frames = 900,
-        rescale = True,
-        rescaling_max = 0.9,
-        synthesis_batch_size = 8,                  # For vocoder preprocessing and inference.
-```
-
-Train Vocoder-Train the vocoder：adjust the batch_size in `vocoder/wavernn/hparams.py`
-```
-//Before
-# Training
-voc_batch_size = 100
-voc_lr = 1e-4
-voc_gen_at_checkpoint = 5
-voc_pad = 2
-
-//After
-# Training
-voc_batch_size = 6
-voc_lr = 1e-4
-voc_gen_at_checkpoint = 5
-voc_pad =2
-```
-
-#### 4.If it happens `RuntimeError: Error(s) in loading state_dict for Tacotron: size mismatch for encoder.embedding.weight: copying a param with shape torch.Size([70, 512]) from checkpoint, the shape in current model is torch.Size([75, 512]).`
-Please refer to issue [#37](https://github.com/babysor/MockingBird/issues/37)
-
-#### 5. How to improve CPU and GPU occupancy rate?
-Adjust the batch_size as appropriate to improve
-
-
-#### 6. What if it happens `the page file is too small to complete the operation`
-Please refer to this [video](https://www.youtube.com/watch?v=Oh6dga-Oy10&ab_channel=CodeProf) and change the virtual memory to 100G (102400), for example : When the file is placed in the D disk, the virtual memory of the D disk is changed.
-
-#### 7. When should I stop during training?
-FYI, my attention came after 18k steps and loss became lower than 0.4 after 50k steps.
-![attention_step_20500_sample_1](https://user-images.githubusercontent.com/7423248/128587252-f669f05a-f411-4811-8784-222156ea5e9d.png)
-![step-135500-mel-spectrogram_sample_1](https://user-images.githubusercontent.com/7423248/128587255-4945faa0-5517-46ea-b173-928eff999330.png)
